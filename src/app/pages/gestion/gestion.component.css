@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    
+    height: 100vh;
+}
+
+.prestamos-container {
+    margin-top: 80px;
+    width: 90%;
+    max-width: 1000px;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.15);
+    height: 500px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: black;
+}
+
+.prestamos-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.prestamos-table th, 
+.prestamos-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.prestamos-table th {
+    background-color: #052c65;
+    color: white;
+}
+
+.prestamos-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.entregado-btn {
+    background-color: #27ae60;
+}
+
+.entregado-btn:hover {
+    background-color: #219150;
+}
+
+.actualizar-btn {
+    background-color: #2980b9;
+}
+
+.actualizar-btn:hover {
+    background-color: #1f6b93;
+}
+
+.nuevo-btn {
+    background-color: #f39c12;
+}
+
+.nuevo-btn:hover {
+    background-color: #d4880b;
+}
+
+.eliminar-btn {
+    background-color: #e74c3c;
+}
+
+.eliminar-btn:hover {
+    background-color: #c0392b;
+}

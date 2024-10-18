@@ -14,7 +14,7 @@ body {
 }
 
 .solicitud-container {
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,19 +95,24 @@ button {
 }
 
 .accept-btn {
-    background: #27ae60;
+    background: #052c65;
 }
 
 .accept-btn:hover {
-    background: #219150;
+    background: white;
+    color: #052c65;
+    border: 1px solid #052c65; 
 }
 
 .reject-btn {
-    background: #e74c3c;
+    background: white;
+    color: #052c65;
+    border: 1px solid #052c65;  
 }
 
 .reject-btn:hover {
-    background: #c0392b;
+    background: #052c65;
+    color: white;
 }
 .image-box img {
     width: 200px; /* Ajusta el tamaño de la imagen */
