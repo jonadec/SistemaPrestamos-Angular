@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(120deg, #2980b9, #8e44ad);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.product-box {
+    background: white;
+    padding: 90px;
+    border-radius: 12px;
+    box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 600px;
+}
+
+.product-box h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #333;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.input-box input,
+.input-box select {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    color: #333;
+    font-size: 20px;
+    transition: 0.3s;
+    appearance: none;
+}
+
+.input-box select {
+    background-color: white;
+    font-size: 18px;
+    padding-left: 5px;
+}
+
+.input-box label {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    font-size: 20px;
+    color: #052c65;
+    transition: 0.3s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label,
+.input-box select:focus ~ label,
+.input-box select:valid ~ label {
+    top: -25px;
+    font-size: 16px;
+    color: #052c65;
+}
+
+button {
+    background: #052c65;
+    border: none;
+    padding: 12px 25px;
+    color: white;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #ededed;
+}
+
+
+.image-box img {
+    width: 200px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px;
+}

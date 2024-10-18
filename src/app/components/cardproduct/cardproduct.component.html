@@ -1,0 +1,10 @@
+<div class="card mt-3 ms-3" style="height: 350px;" >
+    <img class="card-img-top" [src]="producto.image" alt="Title" />
+    <div class="card-body">
+        <h4 class="card-title">{{producto.name}}</h4>
+        @if (!producto.state) {
+            <span class=" badge bg-danger">No Disponible</span>
+        }
+        <button class="btn btn-success mt-2" style="display: flex;" >Pedir</button>
+    </div>
+</div>

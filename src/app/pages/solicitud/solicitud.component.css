@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(120deg, #2980b9, #8e44ad);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.solicitud-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.solicitud-box {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 400px;
+}
+
+.solicitud-box h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #333;
+}
+
+.form-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    color: #333;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.input-box label {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    font-size: 18px;
+    color: #052c65;
+    transition: 0.3s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+    top: -25px;
+    font-size: 16px;
+    color: #052c65;
+}
+
+.buttons-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+button {
+    border: none;
+    padding: 12px 25px;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.accept-btn {
+    background: #27ae60;
+}
+
+.accept-btn:hover {
+    background: #219150;
+}
+
+.reject-btn {
+    background: #e74c3c;
+}
+
+.reject-btn:hover {
+    background: #c0392b;
+}
+.image-box img {
+    width: 200px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px;
+}
