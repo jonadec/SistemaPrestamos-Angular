@@ -1,10 +1,5 @@
-<div class="card mt-3 ms-3" style="height: 350px;" >
-    <img style="height: 190px;" class="card-img-top" [src]="producto.image" alt="Title" />
-    <div class="card-body">
-        <h4 class="card-title">{{producto.name}}</h4>
-        @if (!producto.state) {
-            <span class=" badge bg-danger">No Disponible</span>
-        }
-        <button class="btn btn-success mt-2" style="display: flex;" >Pedir</button>
-    </div>
-</div>
+<div class="card product_card" style="height: 350px;" >
+    <img style="height: 190px;" class="card-img-top" [src]="productCard?.image_url" alt="Title" />
+    <h4 class="card-title">{{productCard?.name}}</h4>
+    <button class="btn btn-success mt-2" style="display: flex;">Pedir</button>
+</div> 

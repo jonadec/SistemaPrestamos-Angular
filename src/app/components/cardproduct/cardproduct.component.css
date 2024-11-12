@@ -1,0 +1,23 @@
+.product_card{
+    border: none !important;
+    background-color: transparent!important;
+    color: white;
+    cursor: pointer;
+
+}
+
+.product_card:hover{
+    border: 1px solid #0d6efd !important;
+}
+
+i{
+    position: absolute;
+    font-size: 30px !important;
+    margin: 5px;
+    color: #ff3755;
+    transition: color 0.3s ease;
+}
+
+i:hover{
+    color: #fff;
+} 

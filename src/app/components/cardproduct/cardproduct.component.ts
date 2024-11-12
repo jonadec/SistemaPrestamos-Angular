@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, inject, Input } from '@angular/core'
 
 @Component({
   selector: 'app-cardproduct',
@@ -10,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './cardproduct.component.css'
 })
 export class CardproductComponent {
-  @Input({required: true}) producto:any;
-  private _routerchido = inject(Router);
+  @Input() productCard:any={};
+  
 }
+  
