@@ -13,9 +13,16 @@ import { AuthService } from '../../services/auth.service';
 })
 export class NavbarComponent {
   isAdmin = false;
-  isLogged: boolean = false;
+  isLogged = false;
   private authS = inject(AuthService);
   constructor() { 
+    if(this.authS.getRole() === 'admin'){
+      this.isAdmin = true;
+    }
+    this.isLog();
+    this.isAd();
+  }
+  isAd(){
     if(this.authS.getRole() === 'admin'){
       this.isAdmin = true;
     }

@@ -10,7 +10,7 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" routerLinkActive="active" routerLink="/home">Home</a>
             </li>
-          @if(!isAdmin) {
+          @if(isAdmin) {
               <li class="nav-item" >
                 <a class="nav-link" routerLinkActive="active" routerLink="/reg-item">Reg Item</a>
               </li>
@@ -24,13 +24,12 @@
                 <a class="nav-link" routerLinkActive="active" routerLink="/gestion">Gestionar</a>
               </li>
             }
-            
+          @else if (!isAdmin) {
             <li class="nav-item">
               <a class="nav-link" routerLinkActive="active" routerLink="/solicitar">Solicitar</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" routerLink="/login">LogIn</a>
-            </li>
+
+          }
           </ul>
           <button (click)="logout()">Log Out</button>
         }
