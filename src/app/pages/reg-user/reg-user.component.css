@@ -42,7 +42,8 @@ body {
     margin-bottom: 35px;
 }
 
-.input-box input {
+.input-box input, 
+.input-box select{
     width: 100%;
     padding: 15px; /* Más espacio en los inputs */
     background: transparent;
@@ -52,6 +53,12 @@ body {
     color: #333;
     font-size: 20px; /* Tamaño de letra más grande */
     transition: 0.3s;/* Más margen arriba */
+    appearance: none;
+}
+.input-box select {
+    background-color: white;
+    font-size: 18px;
+    padding-left: 5px;
 }
 
 .input-box label {
@@ -64,7 +71,9 @@ body {
 }
 
 .input-box input:focus ~ label,
-.input-box input:valid ~ label {
+.input-box input:valid ~ label,
+.input-box select:focus ~ label,
+.input-box select:valid ~ label {
     top: -25px;
     font-size: 16px;
     color: #052c65;

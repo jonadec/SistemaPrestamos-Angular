@@ -2,32 +2,37 @@
 <div class="product-container">
     <div class="product-box">
         <h2><i class="fa-solid fa-cart-shopping"></i> Registrar Producto</h2>
-        <form action="#" method="POST">
+        <form [formGroup]="formRegister" (ngSubmit)="register()">
             <div class="input-box">
-                <input type="text" required>
+                <input type="text" required formControlName="code">
                 <label>Código</label>
             </div>
             <div class="input-box">
-                <input type="text" required>
+                <input type="text" required formControlName="name">
                 <label>Nombre</label>
             </div>
             <div class="input-box">
-                <select required>
+                <select required formControlName="category">
                     <option value="" disabled selected></option>
-                    <option value="electronics">Electronics</option>
-                    <option value="furniture">Furniture</option>
-                    <option value="clothing">Clothing</option>
-                    <option value="books">Books</option>
+                    <option value="Electronica">Electronica</option>
+                    <option value="Herramienta">Herramienta</option>
+                    <option value="Deportes">Deportes</option>
+                    <option value="Libros">Libros</option>
                 </select>
                 <label>Categoría</label>
             </div>
             <div class="input-box">
-                <input type="number" min="1" required>
+                <input type="number" min="1" required formControlName="quantity">
                 <label>Cantidad</label>
             </div>
-            <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D" alt="Product Image">
-            </div> 
+            <div class="input-box">
+                <input type="text" required formControlName="description">
+                <label>Descripción</label>
+            </div>
+            <div class="input-box">
+                <input type="text" required formControlName="image_url">
+                <label>Url de imágen</label>
+            </div>
             <button type="submit">Guardar</button> 
         </form>
     </div>

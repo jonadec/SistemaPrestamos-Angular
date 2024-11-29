@@ -8,6 +8,7 @@ import { SolicitudComponent } from './pages/solicitud/solicitud.component';
 import { SolicitarComponent } from './pages/solicitar/solicitar.component';
 import { GestionComponent } from './pages/gestion/gestion.component';
 import { LoginComponent } from './pages/login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 export const routes: Routes = [
@@ -16,29 +17,40 @@ export const routes: Routes = [
   },
   {
     path: 'home',
-    component:HomeComponent
+    component:HomeComponent,
+    canActivate: [AuthGuard]
   },
 
   {
     path:'reg-user', 
-   component: RegUserComponent
+    component: RegUserComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'admin' }
   },
   {
     path: 'reg-item',
-    component: RegItemComponent
+    component: RegItemComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'admin' }
   },
 
   {
     path:'solicitud',
-    component: SolicitudComponent
+    component: SolicitudComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'admin' }
   },
   {
     path:'solicitar',
-    component:SolicitarComponent
+    component:SolicitarComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'user' }
   },
   {
     path:'gestion',
-    component:GestionComponent
+    component:GestionComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'admin' }
   },
   {
     path: 'login',

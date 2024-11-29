@@ -13,5 +13,9 @@ export class ProductService {
     return this._http.get(APIURL+'products/all');
   }
 
+  newProduct(product:any){
+    return this._http.post(APIURL+'products/create',product);
+  }
+
     
 }
