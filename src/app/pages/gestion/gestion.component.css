@@ -99,3 +99,35 @@ button {
 .eliminar-btn:hover {
     background-color: #c0392b;
 }
+.filter-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  /* Estilo para los botones de filtro */
+  .filter-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  /* Estilo para el botón de "Solicitudes" */
+  .solicitudes-btn {
+    background-color: #fff;
+    color: #007bff;
+
+  }
+  
+  .solicitudes-btn:hover {
+    background-color: #007bff;
+    color: #fff;
+
+  }
+  

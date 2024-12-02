@@ -2,47 +2,35 @@
 <body>
     
     <div class="prestamos-container">
-        <h2>Gestión de Préstamos</h2>
+        <div class="filter-buttons">
+            <button class="solicitudes-btn" (click)="filterLoans(1)" (click)="showSolicitudes()">Solicitudes</button>
+            <button class="solicitudes-btn" (click)="filterLoans(2)" (click)="showActivos()">Préstamos Activos</button>
+        </div>
+        <h2>{{ titulo }}</h2>
         <button class="nuevo-btn">Registrar nuevo</button>
+
+
         <table class="prestamos-table">
-            
             <thead>
                 <tr>
                     <th>ID Préstamo</th>
-                    <th>Nombre del Producto</th>
+                    <th>Producto</th>
                     <th>Solicitante</th>
-                    <th>Fecha de Inicio</th>
-                    <th>Fecha de Vencimiento</th>
+                    <th>Fecha de Solicitud</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
-
             <tbody>
-                <tr>
-                    <td>001</td>
-                    <td>Portátil HP</td>
-                    <td>Juan Pérez</td>
-                    <td>2024-10-01</td>
-                    <td>2024-11-01</td>
+                <tr *ngFor="let prestamo of prestamosFiltrados">
+                    <td>{{ prestamo.id }}</td>
+                    <td>{{ prestamo.product.name }}</td>
+                    <td>{{ prestamo.user.name }}</td>
+                    <td>{{ prestamo.loan_date }}</td>
                     <td class="action-buttons">
-                        <button class="entregado-btn">Marcar como entregado</button>
-                        <button class="actualizar-btn">Actualizar</button>
-                        <button class="eliminar-btn">Eliminar</button>
+                        <button class="entregado-btn" (click)="acceptLoan(prestamo.id)">Aceptar</button>
+                        <button class="eliminar-btn" (click)="rejectLoan(prestamo.id)">Rechazar</button>
                     </td>
                 </tr>
-                <tr>
-                    <td>002</td>
-                    <td>Proyector Epson</td>
-                    <td>Ana Gómez</td>
-                    <td>2024-10-05</td>
-                    <td>2024-10-20</td>
-                    <td class="action-buttons">
-                        <button class="entregado-btn">Marcar como entregado</button>
-                        <button class="actualizar-btn">Actualizar</button>
-                        <button class="eliminar-btn">Eliminar</button>
-                    </td>
-                </tr>
-                <!-- Más filas aquí -->
             </tbody>
         </table>
     </div>
