@@ -9,6 +9,8 @@ import { SolicitarComponent } from './pages/solicitar/solicitar.component';
 import { GestionComponent } from './pages/gestion/gestion.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { PrestamosactivosComponent } from './pages/prestamosactivos/prestamosactivos.component';
+import { PrestamospasadosComponent } from './pages/prestamospasados/prestamospasados.component';
 
 
 export const routes: Routes = [
@@ -55,6 +57,18 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'prestamosactivos',
+    component: PrestamosactivosComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'admin' }
+  },
+  {
+    path: 'prestamospasados',
+    component: PrestamospasadosComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'admin' }
   },
   {
     path:'**',

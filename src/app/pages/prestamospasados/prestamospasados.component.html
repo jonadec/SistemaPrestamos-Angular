@@ -1,10 +1,7 @@
 
 <body>
-    
     <div class="prestamos-container">
         <h2>{{ titulo }}</h2>
-        <button class="nuevo-btn">Registrar nuevo</button>
-
 
         <table class="prestamos-table">
             <thead>
@@ -12,7 +9,8 @@
                     <th>ID Préstamo</th>
                     <th>Producto</th>
                     <th>Solicitante</th>
-                    <th>Fecha de Solicitud</th>
+                    <th>Fecha de Inicio</th>
+                    <th>Fecha de Entrega</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -22,9 +20,9 @@
                     <td>{{ prestamo.product.name }}</td>
                     <td>{{ prestamo.user.name }}</td>
                     <td>{{ prestamo.loan_date }}</td>
+                    <td>{{ prestamo.return_date }}</td>
                     <td class="action-buttons">
-                        <button class="entregado-btn" (click)="acceptLoan(prestamo.id)">Aceptar</button>
-                        <button class="eliminar-btn" (click)="rejectLoan(prestamo.id)">Rechazar</button>
+                        <button class="solicitudes-btn" (click)="handinLoan(prestamo.id)">Editar</button>
                     </td>
                 </tr>
             </tbody>

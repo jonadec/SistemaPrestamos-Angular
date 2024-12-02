@@ -1,22 +1,24 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { LoanService } from '../../services/loan.service';
 import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import Swal from 'sweetalert2';
+import { LoanService } from '../../services/loan.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-gestion',
+  selector: 'app-prestamosactivos',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './gestion.component.html',
-  styleUrls: ['./gestion.component.css']
+  templateUrl: './prestamosactivos.component.html',
+  styleUrl: './prestamosactivos.component.css'
 })
-export class GestionComponent {
+export class PrestamosactivosComponent {
+
   private _loanService = inject(LoanService);
 
   prestamos: any[] = []; // Todos los préstamos
   prestamosFiltrados: any[] = []; // Préstamos filtrados según el estado
-  prestamosPendientes: any[] = []; // Préstamos pendientes (estado 1)
-  titulo: string = 'Solicitudes de Préstamos';
+  prestamosActivos: any[] = []; // Préstamos pendientes (estado 1)
+  titulo: string = 'Prestamos activos';
 
   constructor() {
     this.getLoans();
@@ -28,8 +30,8 @@ export class GestionComponent {
     this._loanService.getLoans().subscribe(
       (data: any) => {
         this.prestamos = data; // Almacena todos los préstamos obtenidos
-        this.prestamosPendientes = this.prestamos.filter(loan => loan.state === 1);
-        this.filterLoans(1); // Inicialmente, mostramos solo las solicitudes
+        this.prestamosActivos = this.prestamos.filter(loan => loan.state === 2);
+        this.filterLoans(2); // Inicialmente, mostramos solo las solicitudes
       },
       (error) => {
         console.error('Error al cargar los préstamos', error);
@@ -39,35 +41,35 @@ export class GestionComponent {
 
   // Filtra los préstamos según el estado (1 para solicitudes, 2 para préstamos activos)
   filterLoans(state: number) {
-    if (state === 1) {
-      this.prestamosFiltrados = this.prestamosPendientes;
+    if (state === 2) {
+      this.prestamosFiltrados = this.prestamosActivos;
     } 
   }
 
-  acceptLoan(loanId: number) {
+  handinLoan(loanId: number) {
     // Obtener la fecha actual en formato YYYY-MM-DD
     const today = new Date();
-    const loanDate = today.toISOString().split('T')[0]; // Convierte a formato "YYYY-MM-DD"
+    const returnDate = today.toISOString().split('T')[0]; // Convierte a formato "YYYY-MM-DD"
     
     // Enviar la fecha actual al backend para actualizar el préstamo
-    this._loanService.acceptLoan(loanId, loanDate).subscribe(
+    this._loanService.handinLoan(loanId, returnDate).subscribe(
       (response) => {
-        Swal.fire('Préstamo aceptado con éxito', '', 'success');
-        this.prestamosPendientes = this.prestamosPendientes.filter(loan => loan.id !== loanId); // Elimina el préstamo aceptado de los pendientes
-        this.filterLoans(1); // Filtra nuevamente para mostrar las solicitudes
+        Swal.fire('Préstamo entregado con éxito', '', 'success');
+        this.prestamosActivos = this.prestamosActivos.filter(loan => loan.id !== loanId); 
+        this.filterLoans(2);
       },
       (error) => {
-        console.error('Error al aceptar el préstamo', error);
-        Swal.fire('Error al aceptar el préstamo', '', 'error');
+        console.error('Error al entregar el préstamo', error);
+        Swal.fire('Error al entregar el préstamo', '', 'error');
       }
     );
   }
 
-  rejectLoan(loanId: number) {
+  deleteLoan(loanId: number) {
     // Mostrar advertencia con SweetAlert2
     Swal.fire({
       title: '¿Estás seguro?',
-      text: '¡Esta solicitud será eliminada permanentemente!',
+      text: '¡Este prestamo será eliminado permanentemente!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Sí, eliminar',
@@ -83,14 +85,14 @@ export class GestionComponent {
               'El préstamo ha sido eliminado con éxito.',
               'success'
             );
-            this.prestamosPendientes = this.prestamosPendientes.filter(loan => loan.id !== loanId); // Elimina de los pendientes
+            this.prestamosActivos = this.prestamosActivos.filter(loan => loan.id !== loanId); // Elimina de los pendientes
             this.filterLoans(1); // Filtra nuevamente para mostrar las solicitudes
           },
           (error) => {
-            console.error('Error al rechazar el préstamo', error);
+            console.error('Error al eliminar el préstamo', error);
             Swal.fire(
               'Error',
-              'No se pudo rechazar la solicitud.',
+              'No se pudo eliminar el prestamo.',
               'error'
             );
           }
@@ -108,3 +110,4 @@ export class GestionComponent {
 
 
 }
+

@@ -17,12 +17,15 @@ export class LoanService {
   getLoans(){
     return this._http.get(APIURL+'loans/all');
   }
-  acceptLoan(id: number, returnDate: string) {
-    return this._http.put(`${APIURL}loans/accept/${id}`, { return_date: returnDate });
+  acceptLoan(id: number, loanDate: string) {
+    return this._http.put(`${APIURL}loans/accept/${id}`, { loan_date: loanDate });
 }
 
   deleteLoan(id: number) {
     return this._http.delete(`${APIURL}loans/delete/${id}`);
+  }
+  handinLoan(id: number, returnDate: string) {
+    return this._http.put(`${APIURL}loans/handin/${id}`, { return_date: returnDate });
   }
 
 }

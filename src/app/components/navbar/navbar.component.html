@@ -12,10 +12,10 @@
             </li>
           @if(isAdmin) {
               <li class="nav-item" >
-                <a class="nav-link" routerLinkActive="active" routerLink="/reg-item">Reg Item</a>
+                <a class="nav-link" routerLinkActive="active" routerLink="/reg-item">Registrar Item</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLinkActive="active" routerLink="/reg-user">Reg User</a>
+                <a class="nav-link" routerLinkActive="active" routerLink="/reg-user">Registrar Usuario</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" routerLinkActive="active" routerLink="/solicitud">Solicitud</a>
@@ -23,13 +23,13 @@
               <li class="nav-item">
                 <a class="nav-link" routerLinkActive="active" routerLink="/gestion">Solicitudes</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" routerLink="/prestamosactivos">Prestamos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" routerLink="/prestamospasados">Prestamos Pasados</a>
+              </li>
             }
-          @else if (!isAdmin) {
-            <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" routerLink="/solicitar">Solicitar</a>
-            </li>
-
-          }
           </ul>
           <button (click)="logout()">Log Out</button>
         }
