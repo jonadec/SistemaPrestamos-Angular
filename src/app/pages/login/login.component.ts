@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import Swal from 'sweetalert2';
+import { identifierName } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,7 @@ export class LoginComponent {
   private _authS=inject(AuthService);
   token:any[]=[];
   user={
+    id:'',
     username:'',
     password:'',
     token:'',
@@ -48,6 +50,7 @@ export class LoginComponent {
         this.token=res.token;
         localStorage.setItem('token', res.token);
         localStorage.setItem('role', res.user.role);
+        localStorage.setItem('id', res.user.id);
         this._router.navigate(['/home']);
         
       },

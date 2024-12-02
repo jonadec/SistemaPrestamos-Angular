@@ -7,6 +7,8 @@
             <img style="height: 190px;" class="card-img-top" [src]="prod?.image_url" alt="Title" />
             <h5>{{prod?.name}}</h5>
             <h6>Cantidad: {{prod.quantity}}</h6>
+            <button class="btn btn-primary" [routerLink]="['/solicitar', prod.id]">Pedir</button>
+
             <!-- <app-cardproduct [productCard]="prod"></app-cardproduct>  -->
         </div>
     }@empty {

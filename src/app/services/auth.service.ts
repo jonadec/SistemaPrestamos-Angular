@@ -23,6 +23,11 @@ export class AuthService {
     const role = localStorage.getItem('role') || null;
     return role;
   }
+  getUser(){
+    const user = localStorage.getItem('id') || null;
+    return user;
+  }
+
   logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('role');

@@ -76,21 +76,21 @@
 }
 
 button {
-    background: #052c65;
     border: none;
     padding: 12px 25px; 
-    color: white;
     font-size: 18px; 
     border-radius: 6px;
     cursor: pointer;
     transition: background 0.3s ease;
+    display: flex;
+    margin: 4px;
 }
 
 
-.accept-btn:hover {
+/* .accept-btn:hover {
     background: #00439b;    
     color: #ededed;
-}
+} */
 
 .image-box img {
     width: 200px; /* Ajusta el tamaño de la imagen */
@@ -98,4 +98,10 @@ button {
     border-radius: 12px;
     box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.15);
     margin-bottom: 30px;
+}
+.botones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }

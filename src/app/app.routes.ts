@@ -41,7 +41,7 @@ export const routes: Routes = [
     data: { role: 'admin' }
   },
   {
-    path:'solicitar',
+    path:'solicitar/:id',
     component:SolicitarComponent,
     canActivate: [AuthGuard],
     data: { role: 'user' }

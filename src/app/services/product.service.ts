@@ -12,6 +12,9 @@ export class ProductService {
   getProducts(){
     return this._http.get(APIURL+'products/all');
   }
+  getProductById(id:number){
+    return this._http.get(APIURL+'products/'+id);
+  }
 
   newProduct(product:any){
     return this._http.post(APIURL+'products/create',product);
