@@ -11,6 +11,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { PrestamosactivosComponent } from './pages/prestamosactivos/prestamosactivos.component';
 import { PrestamospasadosComponent } from './pages/prestamospasados/prestamospasados.component';
+import { EditarproductoComponent } from './pages/editarproducto/editarproducto.component';
 
 
 export const routes: Routes = [
@@ -67,6 +68,12 @@ export const routes: Routes = [
   {
     path: 'prestamospasados',
     component: PrestamospasadosComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'admin' }
+  },
+  {
+    path: 'editarproducto/:id',
+    component: EditarproductoComponent,
     canActivate: [AuthGuard],
     data: { role: 'admin' }
   },

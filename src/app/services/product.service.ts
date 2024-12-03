@@ -20,5 +20,10 @@ export class ProductService {
     return this._http.post(APIURL+'products/create',product);
   }
 
+  updateProduct(id: number, product: any) {
+    return this._http.put(`${APIURL}products/update/${id}`, product);
+}
+
+
     
 }

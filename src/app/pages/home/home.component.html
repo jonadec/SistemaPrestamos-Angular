@@ -9,10 +9,10 @@
             <h6>Cantidad: {{prod.quantity}}</h6>
 
             @if (isAdmin) {
-                <button class="btn btn-primary">Editar</button>
+                <button class="btn btn-primary" [routerLink]="['/editarproducto', prod.id]"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
             }
             @else if (!isAdmin) {
-                <button class="btn btn-success" [routerLink]="['/solicitar', prod.id]">Pedir</button>
+                <button class="btn btn-success" [routerLink]="['/solicitar', prod.id]"><i class="fa-solid fa-plus"></i> Pedir</button>
             }
 
             <!-- <app-cardproduct [productCard]="prod"></app-cardproduct>  -->

@@ -55,6 +55,7 @@ export class GestionComponent {
         Swal.fire('Préstamo aceptado con éxito', '', 'success');
         this.prestamosPendientes = this.prestamosPendientes.filter(loan => loan.id !== loanId); // Elimina el préstamo aceptado de los pendientes
         this.filterLoans(1); // Filtra nuevamente para mostrar las solicitudes
+  
       },
       (error) => {
         console.error('Error al aceptar el préstamo', error);

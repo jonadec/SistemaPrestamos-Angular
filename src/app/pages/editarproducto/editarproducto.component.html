@@ -1,0 +1,45 @@
+<div class="edit-product-container">
+    <h2>Editar Artículo</h2>
+    <form [formGroup]="productForm" (ngSubmit)="updateProduct()">
+      <div>
+        <label for="name">Nombre del Artículo</label>
+        <input id="name" formControlName="name" type="text" placeholder="Nombre del producto" />
+        <div *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched">
+          <small>El nombre es obligatorio.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="code">Código del Artículo</label>
+        <input id="code" formControlName="code" type="text" placeholder="Código del Artículo" />
+        <div *ngIf="productForm.get('code')?.invalid && productForm.get('code')?.touched">
+          <small>El Código es obligatorio.</small>
+        </div>
+      </div>
+  
+      <div>
+        <label for="description">Descripción</label>
+        <textarea id="description" formControlName="description" placeholder="Descripción del producto"></textarea>
+      </div>
+  
+      <div>
+        <label for="quantity">Cantidad</label>
+        <input id="quantity" formControlName="quantity" type="number" placeholder="Cantidad" />
+        <div *ngIf="productForm.get('quantity')?.invalid && productForm.get('quantity')?.touched">
+          <small>Cantidad de este artículo</small>
+        </div>
+      </div>
+      
+      <div>
+        <label for="image_url">Url de imagen</label>
+        <input id="image_url" formControlName="image_url" type="text" placeholder="image_url" />
+        <div *ngIf="productForm.get('image_url')?.invalid && productForm.get('image_url')?.touched">
+          <small>Cantidad de este artículo</small>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="productForm.invalid">Guardar Cambios</button>
+      <button class="cancel" type="submit"[routerLink]="['/home']">Cancelar</button>
+    </form>
+  </div>
+  
