@@ -1,13 +1,13 @@
 
 <body>
     <div class="prestamos-container">
-        <h2>{{ titulo }}</h2>
+        <h2><i class="fa-solid fa-calendar-week"></i> {{ titulo }}</h2>
 
         <table class="prestamos-table">
             <thead>
                 <tr>
                     <th>ID Préstamo</th>
-                    <th>Producto</th>
+                    <th>Artículo</th>
                     <th>Solicitante</th>
                     <th>Fecha de Inicio</th>
                     <th>Fecha de Entrega</th>
@@ -15,7 +15,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let prestamo of prestamosFiltrados">
+                <tr *ngFor="let prestamo of prestamosFiltrados | paginate: { itemsPerPage: itemsPerPage, currentPage: page }"
+                >
                     <td>{{ prestamo.id }}</td>
                     <td>{{ prestamo.product.name }}</td>
                     <td>{{ prestamo.user.name }}</td>
@@ -27,5 +28,6 @@
                 </tr>
             </tbody>
         </table>
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
 </body>

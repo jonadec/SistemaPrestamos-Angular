@@ -1,12 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { LoanService } from '../../services/loan.service';
 import { CommonModule } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-gestion',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgxPaginationModule],
   templateUrl: './gestion.component.html',
   styleUrls: ['./gestion.component.css']
 })
@@ -17,6 +18,8 @@ export class GestionComponent {
   prestamosFiltrados: any[] = []; // Préstamos filtrados según el estado
   prestamosPendientes: any[] = []; // Préstamos pendientes (estado 1)
   titulo: string = 'Solicitudes de Préstamos';
+  page: number = 1;
+  itemsPerPage: number = 5;
 
   constructor() {
     this.getLoans();

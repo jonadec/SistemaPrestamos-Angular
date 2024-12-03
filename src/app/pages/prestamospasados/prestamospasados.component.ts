@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import Swal from 'sweetalert2';
 import { LoanService } from '../../services/loan.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-prestamospasados',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgxPaginationModule],
   templateUrl: './prestamospasados.component.html',
   styleUrl: './prestamospasados.component.css'
 })
@@ -18,6 +19,8 @@ export class PrestamospasadosComponent {
   prestamosFiltrados: any[] = []; // Préstamos filtrados según el estado
   prestamosActivos: any[] = []; // Préstamos pendientes (estado 1)
   titulo: string = 'Prestamos pasados';
+  page: number = 1;
+  itemsPerPage: number = 4;
 
   constructor() {
     this.getLoans();

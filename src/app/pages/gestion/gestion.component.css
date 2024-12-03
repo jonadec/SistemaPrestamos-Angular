@@ -130,4 +130,25 @@ button {
     color: #fff;
 
   }
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination-controls li a {
+    padding: 8px 12px;
+    margin: 0 4px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .pagination-controls li a.active,
+  .pagination-controls li a:hover {
+    background-color: #007bff;
+    color: white;
+  }
   

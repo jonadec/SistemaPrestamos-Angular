@@ -2,25 +2,26 @@
 <body>
     
     <div class="prestamos-container">
-        <h2>{{ titulo }}</h2>
-        <button class="nuevo-btn">Registrar nuevo</button>
+        <h2><i class="fa-solid fa-bell"></i> {{ titulo }}</h2>
+
 
 
         <table class="prestamos-table">
             <thead>
                 <tr>
                     <th>ID Préstamo</th>
-                    <th>Producto</th>
+                    <th>Artículo</th>
                     <th>Solicitante</th>
                     <th>Fecha de Solicitud</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let prestamo of prestamosFiltrados">
+                <tr *ngFor="let prestamo of prestamosFiltrados | paginate: { itemsPerPage: itemsPerPage, currentPage: page }"
+                >
                     <td>{{ prestamo.id }}</td>
                     <td>{{ prestamo.product.name }}</td>
-                    <td>{{ prestamo.user.name }}</td>
+                    <td>{{ prestamo.user.name + ' ' + prestamo.user.lastname}}</td>
                     <td>{{ prestamo.loan_date }}</td>
                     <td class="action-buttons">
                         <button class="entregado-btn" (click)="acceptLoan(prestamo.id)">Aceptar</button>
@@ -29,5 +30,6 @@
                 </tr>
             </tbody>
         </table>
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
 </body>
